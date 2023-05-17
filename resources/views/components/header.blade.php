@@ -4,8 +4,9 @@
         <div class="col-auto">
             <div class="d-flex items-center">
                 <a href="/" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
-                    <img src="{{ asset('img/general/logo-dark.svg') }}" alt="logo icon">
-                    <img src="{{ asset('img/general/logo-dark.svg') }}" alt="logo icon">
+                    <img src="{{ asset('metrip_log.svg') }}" alt="logo icon">
+                    <img src="{{ asset('metrip_log.svg') }}" alt="logo icon">
+                    <!-- <img src="{{ asset('img/general/logo-dark.svg') }}" alt="logo icon"> -->
                 </a>
                 <div class="header-menu" data-x="mobile-menu" data-x-toggle="is-menu-active">
                     <div class="mobile-overlay"></div>
