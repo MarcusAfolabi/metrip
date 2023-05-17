@@ -2,7 +2,7 @@
     <div class="pt-60 pb-60">
         <div class="row y-gap-40 justify-between xl:justify-start">
             <div class="col-xl-4 col-lg-6">
-                <img src="{{ asset('img/general/logo-light.svg') }}" alt="image">
+                <img src="{{ asset('metrip_logo_white.svg') }}" alt="image">
 
                 <div class="row y-gap-30 justify-between pt-30">
                     <div class="col-sm-5">

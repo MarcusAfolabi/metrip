@@ -1,60 +1,161 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+@extends('layouts.main')
+@section('title', "Register on Metrip")
+@section('description', "Have access to your amazing places at exclusive deals")
+@section('keyword', "register, airline, aircraft, air, bag, crew, travel, airline, airport, places, google place, map, flight, tickets, booking, embassy, book")
+@section('main')
+@php
+$ipAddress = session('ip_address');
 
-        <x-validation-errors class="mb-4" />
+function hasInternet() {
+$connected = @fsockopen("www.google.com", 80); // attempt to connect to Google
+if ($connected) {
+fclose($connected);
+return true; // internet connection is available
+}
+return false; // internet connection is not available
+}
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+if (hasInternet()) {
+$url = "https://ipwho.is/{$ipAddress}";
+$data = json_decode(file_get_contents($url));
+$country = $data->country; // get the country name
+$city = $data->city; // get the city name
+$state = $data->region; // get the state name
+$dial = $data->calling_code; // get the city name
+$zipcode = $data->postal; // get the city name
+}
 
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
+$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$length = 8;
 
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
+$userid = 'MT' . substr(str_shuffle($characters), 0, $length);
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
 
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+@endphp
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+<section class="layout-pt-lg layout-pb-lg bg-blue-2">
+    <div class="container">
+        <div class="row justify-center">
+            <div class="col-xl-6 col-lg-7 col-md-9">
+                <div class="px-50 py-50 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf <div class="row y-gap-20">
 
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
+                            <div class="col-12">
+                                <button class="button col-12 -outline-red-1 text-red-1 py-15 rounded-8 mt-15">
+                                    <i class="icon-apple text-15 mr-10"></i>
+                                    Google
+                                </button>
                             </div>
-                        </div>
-                    </x-label>
+
+                            <div class="col-12">
+                                <h1 class="text-22 fw-500 text-center">Or </h1>
+                            </div>
+                            <div class="col-12">
+                                <x-validation-errors class="mb-4" />
+
+                                @if (session('status'))
+                                <div class="mb-4 font-medium text-sm text-green-600">
+                                    {{ session('status') }}
+                                </div>
+                                @endif
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-input ">
+                                    <input type="text" type="name" name="first_name" :value="old('first_name')" required>
+                                    <label class="lh-1 text-14 text-light-1">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="form-input ">
+                                    <input type="text" type="last_name" name="last_name" :value="old('last_name')" required autofocus autocomplete="name">
+                                    <label class="lh-1 text-14 text-light-1">Last Name</label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="form-input ">
+                                    <input type="email" type="email" name="user_email" :value="old('user_email')" required autocomplete="username" id="email">
+                                    <label class="lh-1 text-14 text-light-1">Email</label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="form-input ">
+                                    <input type="password" name="user_password" required autocomplete="new-password">
+                                    <label class="lh-1 text-14 text-light-1">Password</label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="form-input ">
+                                    <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" required>
+                                    <label class="lh-1 text-14 text-light-1">Confirm Password</label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <div class="d-flex ">
+                                    <div class="form-checkbox mt-5">
+                                        <input type="checkbox" id="remember_me" name="remember">
+                                        <div class="form-checkbox__mark">
+                                            <div class="form-checkbox__icon icon-check"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-15 lh-15 text-light-1 ml-10">
+                                        <span class="ml-2 text-sm text-gray-600">{{ __('Email me exclusive promotions.') }}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                @if (hasInternet())
+                                <input hidden name="country" value="{{ $country }}" />
+                                <input hidden name="state" value="{{ $state }}" />
+                                <input hidden name="city" value="{{ $city }}" />
+                                <input hidden name="dial" value="{{ $dial }}" />
+                                <input hidden name="zipcode" value="{{ $zipcode }}" />
+                                <input hidden name="userid" value="{{ $userid }}" />
+                                @endif
+                            </div>
+
+
+                            <div class="button py-20 -dark-1 bg-blue-1 text-white">
+                                <button type="submit" class=" text-white">
+                                    Sign Up
+                                </button>
+                            </div>
+                    </form>
                 </div>
-            @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
 
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
             </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+        </div>
+    </div>
+    </div>
+</section>
+<script>
+function validateEmail(email) {
+  // Regular expression pattern for email validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  // Return true if the email matches the pattern, otherwise return false
+  return emailRegex.test(email);
+}
+var email = "example@example.com";
+var isValid = validateEmail(email);
+console.log(isValid); // Output: true
+</script>
+@endsection
