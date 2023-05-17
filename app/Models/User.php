@@ -33,7 +33,7 @@ class User extends Authenticatable
         'dial',
         'zipcode',
         'userid',
-        'user_password',
+        'user_pass',
     ];
 
     protected $table = 'users';
@@ -44,7 +44,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'user_password',
+        'user_pass',
         'userid',
         'remember_token',
         'two_factor_recovery_codes',

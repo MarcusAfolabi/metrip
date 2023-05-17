@@ -50,7 +50,7 @@ class CreateNewUser implements CreatesNewUsers
             'dial' => ['required', 'numeric'],
             'zipcode' => ['required', 'string', 'max:255'],
             'userid' => ['required', 'string', 'max:255'],
-            'user_password' => $this->passwordRules(),
+            'user_pass' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
@@ -64,7 +64,7 @@ class CreateNewUser implements CreatesNewUsers
             'dial' => $input['dial'],
             'zipcode' => $input['zipcode'],
             'userid' => $input['userid'], 
-            'user_password' => Hash::make($input['user_password']),
+            'user_pass' => Hash::make($input['user_password']),
         ]);
 
         // Send welcome email to the newly registered user

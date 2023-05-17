@@ -89,7 +89,7 @@ $userid = 'MT' . substr(str_shuffle($characters), 0, $length);
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <input type="password" name="user_password" required autocomplete="new-password">
+                                    <input type="password" name="user_pass" required autocomplete="new-password">
                                     <label class="lh-1 text-14 text-light-1">Password</label>
                                 </div>
 
@@ -98,7 +98,7 @@ $userid = 'MT' . substr(str_shuffle($characters), 0, $length);
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" required>
+                                    <input type="password" id="password_confirmation" name="user_pass_confirmation" required autocomplete="new-password" required>
                                     <label class="lh-1 text-14 text-light-1">Confirm Password</label>
                                 </div>
 

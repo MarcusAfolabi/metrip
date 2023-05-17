@@ -16,15 +16,14 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('user_email')->unique();
+            $table->string('user_pass');
+            $table->string('userid');
             $table->string('country');
             $table->string('state');
             $table->string('city');
             $table->string('dial');
             $table->string('zipcode');
-            $table->string('userid');
-            $table->string('user_password'); 
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
