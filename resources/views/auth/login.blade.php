@@ -12,38 +12,36 @@
 </div>
 @endif
 
-<!-- <form method="POST" action="{{ route('login') }}">
-    @csrf
+@php
+$ipAddress = session('ip_address');
 
-    <div>
-        <x-label for="email" value="{{ __('Email') }}" />
-        <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-    </div>
+function hasInternet() {
+$connected = @fsockopen("www.google.com", 80); // attempt to connect to Google
+if ($connected) {
+fclose($connected);
+return true; // internet connection is available
+}
+return false; // internet connection is not available
+}
 
-    <div class="mt-4">
-        <x-label for="password" value="{{ __('Password') }}" />
-        <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-    </div>
+if (hasInternet()) {
+$url = "https://ipwho.is/{$ipAddress}";
+$data = json_decode(file_get_contents($url));
+$country = $data->country; // get the country name
+$city = $data->city; // get the city name
+$state = $data->region; // get the state name
+$dial = $data->calling_code; // get the city name
+$zipcode = $data->postal; // get the city name
+}
 
-    <div class="block mt-4">
-        <label for="remember_me" class="flex items-center">
-            <x-checkbox id="remember_me" name="remember" />
-            <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-        </label>
-    </div>
+$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$length = 8;
 
-    <div class="flex items-center justify-end mt-4">
-        @if (Route::has('password.request'))
-        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-            {{ __('Forgot your password?') }}
-        </a>
-        @endif
+$userid = 'MT' . substr(str_shuffle($characters), 0, $length);
 
-        <x-button class="ml-4">
-            {{ __('Log in') }}
-        </x-button>
-    </div>
-</form> -->
+
+@endphp
+
 <section class="layout-pt-lg layout-pb-lg bg-blue-2">
     <div class="container">
         <div class="row justify-center">
@@ -58,6 +56,7 @@
                                     Google
                                 </button>
                             </div>
+                            
 
                             <div class="col-12">
                                 <h1 class="text-22 fw-500 text-center">Or </h1>
@@ -65,7 +64,7 @@
 
                             <div class="col-12">
                                 <div class="form-input ">
-                                    <input type="text" type="name" name="name" :value="old('name')" required>
+                                    <input type="text" type="name" name="first_name" :value="old('first_name')" required>
                                     <label class="lh-1 text-14 text-light-1">First Name</label>
                                 </div>
                             </div>
@@ -82,7 +81,7 @@
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <input type="email" type="email" name="email" :value="old('email')" required autocomplete="username">
+                                    <input type="email" type="email" name="user_email" :value="old('user_email')" required autocomplete="username">
                                     <label class="lh-1 text-14 text-light-1">Email</label>
                                 </div>
 
@@ -91,7 +90,7 @@
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <input type="password" name="password" required autocomplete="new-password">
+                                    <input type="password" name="user_password" required autocomplete="new-password">
                                     <label class="lh-1 text-14 text-light-1">Password</label>
                                 </div>
 
@@ -122,14 +121,22 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="grid grid-cols-2 gap-2">
+                                @if (hasInternet())
+                                <input hidden name="country" value="{{ $country }}" />
+                                <input hidden name="state" value="{{ $state }}" />
+                                <input hidden name="city" value="{{ $city }}" />
+                                <input hidden name="dial" value="{{ $dial }}" />
+                                <input hidden name="zipcode" value="{{ $zipcode }}" />
+                                <input hidden name="userid" value="{{ $userid }}" />
+                                @endif
+                            </div>
 
-                            <div class="col-12">
 
-                                <a href="#" class="button py-20 -dark-1 bg-blue-1 text-white">
-                                    Sign In <div class="icon-arrow-top-right ml-15"></div>
-                                </a>
-
+                            <div class="button py-20 -dark-1 bg-blue-1 text-white">
+                                <button type="submit" class=" text-white">
+                                    Sign In
+                                </button>
                             </div>
                     </form>
                 </div>
