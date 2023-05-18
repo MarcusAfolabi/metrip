@@ -5,9 +5,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\HotelController;
-use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\FlightSearchController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,8 +18,8 @@ Route::get('auth/google/call-back', [AuthController::class, 'callbackGoogle']);
  
 Route::get('auth/user/{user}profile', [ProfileController::class, 'dashboard'])->name('user.dashboard');
 
-Route::get('flight', [FlightController::class, 'index'])->name('flight.index');
-Route::post('flight/search', [FlightController::class, 'search'])->name('flight.search');
+Route::get('flight', [FlightSearchController::class, 'index'])->name('flight.index');
+Route::post('flight/search', [FlightSearchController::class, 'search'])->name('flight.search');
 
 Route::get('hotel', [HotelController::class, 'index'])->name('hotel.index');
 Route::get('tour', [TourController::class, 'index'])->name('tour.index');

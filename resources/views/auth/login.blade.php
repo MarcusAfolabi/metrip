@@ -3,11 +3,6 @@
 @section('description', "Discover amazing places at exclusive deals")
 @section('keyword', "travel, airline, airport, places, google place, map, flight, tickets, booking, embassy, book")
 @section('main')
-
-
-
-
-
 <section class="layout-pt-lg layout-pb-lg bg-blue-2">
     <div class="container">
         <div class="row justify-center">
@@ -28,13 +23,13 @@
                             </div>
                             <div class="col-12">
 
-                            <x-validation-errors class="mb-4" />
+                                <x-validation-errors class="mb-4" />
 
-                            @if (session('status'))
-                            <div class="mb-4 font-medium text-sm text-green-600">
-                                {{ session('status') }}
-                            </div>
-                            @endif
+                                @if (session('status'))
+                                <div class="mb-4 font-medium text-sm text-green-600">
+                                    {{ session('status') }}
+                                </div>
+                                @endif
                             </div>
 
                             <div class="col-12">
@@ -46,21 +41,23 @@
 
                             <div class="col-12">
                                 <div class="form-input ">
-                                    <input type="password" name="user_password" required autocomplete="new-password">
+                                    <input type="password" name="user_pass" required autocomplete="new-password">
                                     <label class="lh-1 text-14 text-light-1">Password</label>
                                 </div>
                             </div>
 
+                            <a href="{{ route('password.request') }}" class="text-14 fw-500 text-blue-1 underline">Forgot your password?</a>
 
                             <div class="button py-20 -dark-1 bg-blue-1 text-white">
                                 <button type="submit" class=" text-white">
                                     Sign In
                                 </button>
                             </div>
+                            <div class="col-6">
+                            Don't have an account yet?<a href="{{ route('register') }}" class="text-14 fw-500 text-blue-1 underline"> Sign up for free</a>
+                            </div> 
                     </form>
                 </div>
-
-
             </div>
         </div>
     </div>

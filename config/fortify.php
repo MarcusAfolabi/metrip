@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'passwords' => 'users',
+    'user_pass' => 'users',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,9 +46,9 @@ return [
     |
     */
 
-    'username' => 'email',
+    'username' => 'user_email',
 
-    'email' => 'email',
+    'user_email' => 'user_email',
 
     /*
     |--------------------------------------------------------------------------
@@ -134,7 +134,7 @@ return [
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
-        // Features::emailVerification(),
+        Features::emailVerification(),
         Features::updateProfileInformation(),
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
