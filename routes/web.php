@@ -10,6 +10,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\FlightSearchController;
 
 Route::get('/', function () {
+    header('Cache-Control: public, max-age=604800');
     return view('welcome');
 });
 
