@@ -1,21 +1,11 @@
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" /> -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-
-
-<section data-anim-wrap class="masthead -type-3 relative z-5">
-    <div data-anim-child="fade delay-1" class="masthead__bg bg-dark-3">
+<section data-anim-wrap class="masthead -type-3 relative z-2">
+    <div data-anim-child="fade" class="masthead__bg bg-dark-3">
         <img src="img/bg/bg.png" alt="metrip background for host">
     </div>
 
     <div class="container">
         <div class="row justify-center">
             <div class="col-xl-10">
-                <div class="text-center">
-                    <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Discover Your World</h1>
-                    <p data-anim-child="slide-up delay-5" class="text-white mt-5">Discover amazing places at exclusive deals</p>
-                </div>
-
                 <div data-anim-child="slide-up delay-6" class="masthead__tabs">
                     <div class="tabs -bookmark js-tabs">
                         <div class="tabs__controls d-flex items-center js-tabs-controls">

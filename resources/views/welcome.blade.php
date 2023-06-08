@@ -10,9 +10,11 @@
 
 @include('partials.allOffers')
 
+
+<!-- 
 @include('partials.reviews')
 
-@include('partials.blog')
+@include('partials.blog') -->
 
 @include('partials.cta')
 

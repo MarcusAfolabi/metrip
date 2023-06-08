@@ -66,14 +66,7 @@
                     <div class="col-auto">
 
                     </div>
-                </div>
-
-
-                <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                    <a href="#" class="button px-30 fw-400 text-14 -blue-1 bg-blue-1 h-50 text-white">List your property</a>
-                    <a href="{{ route('login') }}" class="button px-30 fw-400 text-14 -outline-blue-1 h-50 text-blue-1 ml-20">Sign In / Register</a>
-                </div>
-
+                </div> 
                 <div class="d-none xl:d-flex x-gap-20 items-center pl-30" data-x="header-mobile-icons" data-x-toggle="text-white">
                     <div><a href="{{ route('login') }}" class="d-flex items-center icon-user text-inherit text-22"></a></div>
                     <div><button class="d-flex items-center icon-menu text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button></div>
