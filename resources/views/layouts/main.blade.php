@@ -12,15 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <title>@yield('title') - Travel, Flight, Hotel, Tour and Visa Booking</title>
   <meta content="description" name="@yield('description')" />
-  <style>
-    #google-sign-in-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
-  </style>
-
-
+ 
 </head>
 
 <body>

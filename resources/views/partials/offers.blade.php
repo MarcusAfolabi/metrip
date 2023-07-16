@@ -37,7 +37,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/1.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/2/1.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -52,7 +52,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/2.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/2/2.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -67,7 +67,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/3.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/2/3.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -82,7 +82,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/4.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/2/4.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -97,7 +97,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/5.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/5.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -112,7 +112,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/1.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/6.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -127,7 +127,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/2.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/7.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
@@ -142,7 +142,7 @@
 
                     <a href="#" class="citiesCard -type-2 ">
                         <div class="citiesCard__image rounded-4 ratio ratio-3:4">
-                            <img class="img-ratio rounded-4 js-lazy" data-src="img/destinations/1/3.webp" src="#" alt="image">
+                            <img class="img-ratio rounded-4 js-lazy" data-src="img/hotels/8.png" src="#" alt="image">
                         </div>
 
                         <div class="citiesCard__content mt-10">
