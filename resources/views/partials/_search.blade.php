@@ -1,97 +1,3 @@
-<!-- <section data-anim-wrap class="masthead -type-3 relative z-2">
-    <div data-anim-child="fade" class="masthead__bg bg-dark-3">
-        <img src="img/bg/bg.png" alt="metrip background for host">
-    </div>
-
-    <div class="container">
-        <div class="row justify-center">
-            <div class="col-xl-10">
-                <div data-anim-child="slide-up" class="masthead__tabs">
-                    <div class="tabs -bookmark js-tabs">
-                        <div class="tabs__controls d-flex items-center js-tabs-controls">
-
-                            <div class="">
-                                <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button is-tab-el-active " data-tab-target=".-tab-item-1">
-                                    <i class="icon-tickets text-20 mr-10"></i>
-                                    Flights
-                                </button>
-                            </div> 
-
-                            <div class="">
-                                <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button " data-tab-target=".-tab-item-3">
-                                    <i class="icon-bed text-20 mr-10"></i>
-                                    Hotel
-                                </button>
-                            </div>
-
-                            <div class="">
-                                <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button " data-tab-target=".-tab-item-4">
-                                    <i class="icon-destination text-20 mr-10"></i>
-                                    Tour
-                                </button>
-                            </div>
-
-                        </div>
-
-                        <div class="tabs__content js-tabs-content">
-
-                            <div class="tabs__pane -tab-item-1 is-tab-el-active">
-                                <form action="{{ route('flight.search') }}" method="POST">
-                                    @csrf
-                                    <select hidden id="flight-type-select" class="form-select" aria-describedby="flight-type-label">
-                                        <option value="round-trip">Round-trip</option>
-                                    </select>
-                                    <x-departure :departure />
-
-                                    <x-destination :destination />
-
-                                    <x-depart_date :depart_date />
-
-                                      <x-return_date :return_date /> 
-
-                                    <x-passenger :passenger />
-
-                                    <x-submit_button :submit />
-                                </form>
-                            </div>
-
-                            <div class="tabs__pane -tab-item-3 ">
-                                <form action="" method="POST">
-                                    @csrf
-                                    <select hidden id="flight-type-select" class="form-select" aria-describedby="flight-type-label">
-                                        <option value="one-way">One-way</option>
-                                    </select>
-                                    <x-departure :departure />
-
-                                    <x-destination :destination />
-
-                                    <x-depart_date :depart_date />
-
-                                    <x-passenger :passenger />
-
-                                    <x-submit_button :submit />
-                                </form>
-                            </div> 
-
-                            <div class="tabs__pane -tab-item-4 ">
-                                <form action="" method="POST">
-                                    <x-departure :departure />
-                                    <x-destination :destination />
-                                    <x-depart_date :depart_date />
-                                    <x-passenger :passenger />
-                                    <x-submit_button :submit />
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
 <section data-anim-wrap class="masthead -type-3 relative z-5">
     <div data-anim-child="fade delay-1" class="masthead__bg bg-dark-3">
         <img src="img/bg/bg.png" alt="image">
@@ -130,151 +36,89 @@
                                 </button>
                             </div>
 
-
                         </div>
 
                         <div class="tabs__content js-tabs-content">
 
                             <div class="tabs__pane -tab-item-1 is-tab-el-active">
                                 <div class="mainSearch bg-white pr-20 py-20 lg:px-20 lg:pt-5 lg:pb-20 rounded-4 shadow-1">
-                                    <div class="button-grid items-center">
+                                    <form action="flight.search" method="POST">
+                                        @csrf
+                                        <div class="button-grid items-center">
 
-                                        <!-- <div class="px-10 lg:py-20 lg:px-0 ">
+                                            <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
 
-                                            <h4 class="text-15 fw-500 ls-2 lh-16">LEAVING FROM</h4>
+                                                <div data-x-dd-click="searchMenu-date">
+                                                    <h4 class="text-15 fw-500 ls-2 lh-16">Departure - Arrival</h4>
 
-                                            <div class="text-15 text-light-1 ls-2 lh-16">
-                                                <input autocomplete="off" type="search" placeholder="Enter destination" class="js-search js-dd-focus" />
-                                            </div>
-                                            <div class="text-15 text-light-1 ls-2 lh-16 mt-12 ">
-                                                <input autocomplete="off" type="search" placeholder="Enter Arrival" class="js-search js-dd-focus" />
-                                            </div>
-                                        </div> -->
-                                        <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
-
-                                            <div data-x-dd-click="searchMenu-date">
-                                                <h4 class="text-15 fw-500 ls-2 lh-16">Departure - Arrival</h4>
-
-                                                <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <input type="text" name="departure_date" placeholder="Departing from"  />
-                                                    -
-                                                    <input type="text" name="arrival_date" placeholder="Arriving in"  />
-                                                </div>
-                                            </div>
-                                        </div> 
-
-
-                                        <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
-
-                                            <div data-x-dd-click="searchMenu-date">
-                                                <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
-
-                                                <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <input type="date" name="departure_date" placeholder="Departing Date"  />
-                                                    -
-                                                    <input type="date" name="arrival_date" placeholder="Arriving Date" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-
-                                            <div data-x-dd-click="searchMenu-guests">
-                                                <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
-
-                                                <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <input type="tel" name="departure_date" placeholder="Adult?" />
-                                                    -
-                                                    <input type="tel" name="departure_date" placeholder="Children?" />
-                                                </div>
-                                            </div>
-
-
-                                            <div class="searchMenu-guests__field shadow-2" data-x-dd="searchMenu-guests" data-x-dd-toggle="-is-active">
-                                                <div class="bg-white px-30 py-30 rounded-4">
-                                                    <div class="row y-gap-10 justify-between items-center">
-                                                        <div class="col-auto">
-                                                            <div class="text-15 fw-500">Adults</div>
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <div class="d-flex items-center js-counter" data-value-change=".js-count-adult">
-                                                                <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                                    <i class="icon-minus text-12"></i>
-                                                                </button>
-
-                                                                <div class="flex-center size-20 ml-15 mr-15">
-                                                                    <div class="text-15 js-count">2</div>
-                                                                </div>
-
-                                                                <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                                    <i class="icon-plus text-12"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="border-top-light mt-24 mb-24"></div>
-
-                                                    <div class="row y-gap-10 justify-between items-center">
-                                                        <div class="col-auto">
-                                                            <div class="text-15 lh-12 fw-500">Children</div>
-                                                            <div class="text-14 lh-12 text-light-1 mt-5">Ages 0 - 17</div>
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <div class="d-flex items-center js-counter" data-value-change=".js-count-child">
-                                                                <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                                    <i class="icon-minus text-12"></i>
-                                                                </button>
-
-                                                                <div class="flex-center size-20 ml-15 mr-15">
-                                                                    <div class="text-15 js-count">1</div>
-                                                                </div>
-
-                                                                <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                                    <i class="icon-plus text-12"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="border-top-light mt-24 mb-24"></div>
-
-                                                    <div class="row y-gap-10 justify-between items-center">
-                                                        <div class="col-auto">
-                                                            <div class="text-15 fw-500">Rooms</div>
-                                                        </div>
-
-                                                        <div class="col-auto">
-                                                            <div class="d-flex items-center js-counter" data-value-change=".js-count-room">
-                                                                <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-down">
-                                                                    <i class="icon-minus text-12"></i>
-                                                                </button>
-
-                                                                <div class="flex-center size-20 ml-15 mr-15">
-                                                                    <div class="text-15 js-count">1</div>
-                                                                </div>
-
-                                                                <button class="button -outline-blue-1 text-blue-1 size-38 rounded-4 js-up">
-                                                                    <i class="icon-plus text-12"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                                                    <div class="text-15 text-light-1 ls-2 lh-16">
+                                                        <input type="text" id="departfrom" name="departfrom" placeholder="Departing from" />
+                                                        -
+                                                        <input type="text" id="arrivalto" name="arrivalto" placeholder="Arriving at" />
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                            <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
+
+                                                <div data-x-dd-click="searchMenu-date">
+                                                    <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
+
+                                                    <div class="text-15 text-light-1 ls-2 lh-16">
+                                                        <input type="date" id="flightdate_from" name="flightdate_from" placeholder="Departing Date" />
+                                                        -
+                                                        <input type="date" id="flightdate_to" name="flightdate_to" placeholder="Arriving Date" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+
+                                                <div data-x-dd-click="searchMenu-guests">
+                                                    <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
+
+                                                    <div class="text-15 text-light-1 ls-2 lh-16">
+                                                        <input type="number" maxlength="9" id="flightadults" name="flightadults" placeholder="Adults" />
+                                                        -
+                                                        <input type="number" maxlength="6" id="flightkids" name="flightkids" placeholder="Kids (2 - 12 yrs)" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
+
+                                                <div data-x-dd-click="searchMenu-guests">
+                                                    <h4 class="text-15 fw-500 ls-2 lh-16">Class - Trip</h4>
+
+                                                    <div class="text-15 text-light-1 ls-2 lh-16">
+                                                        <select id="cabinType" name="cabinType">
+                                                            <option value="ECONOMY">ECONOMY</option>
+                                                            <option value="PREMIUM_ECONOMY">PREMIUM_ECONOMY</option>
+                                                            <option value="BUSINESS">BUSINESS</option>
+                                                            <option value="FIRST">FIRST</option>
+                                                            <option value="ALLCLASS">ALL CLASS</option>
+                                                        </select> 
+                                                        -
+                                                        <select class="full-width" id="flighttype" name="flighttype">
+                                                            <option selected hidden>Trip</option>
+                                                            <option value="Round Trip">Round Trip</option>
+                                                            <option value="OneWay">OneWay</option>
+                                                            <option value="Milti-City">Milti-City</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
 
 
-                                        <div class="button-item">
-                                            <button class="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
-                                                <i class="icon-search text-20 mr-10"></i>
-                                                Search
-                                            </button>
+                                            <div class="button-item">
+                                                <button type="submit" class="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
+                                                    <i class="icon-search text-20 mr-10"></i>
+                                                    Search
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
 
