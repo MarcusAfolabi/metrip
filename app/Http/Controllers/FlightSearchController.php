@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 
 class FlightSearchController extends Controller
 {
-    public function __invoke(Request $request, Client $client)
+    public function search(Request $request, Client $client)
     {
         $url = 'https://test.api.amadeus.com/v2/shopping/flight-offers';
         $access_token = 'FZA0VIFy51Wyyn8hsrvw1HF3hodz';
