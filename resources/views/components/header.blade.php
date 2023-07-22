@@ -4,8 +4,8 @@
         <div class="col-auto">
             <div class="d-flex items-center">
                 <a href="/" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
-                    <img src="{{ asset('metrip_log.svg') }}" alt="logo icon">
-                    <img src="{{ asset('metrip_log.svg') }}" alt="logo icon">
+                    <img src="{{ asset('metrip_log.svg') }}" alt="metrip logo icon">
+                    <img src="{{ asset('metrip_log.svg') }}" alt="metrip logo icon">
                 </a>
                 <div class="header-menu" data-x="mobile-menu" data-x-toggle="is-menu-active">
                     <div class="mobile-overlay"></div>
@@ -38,6 +38,15 @@
                                         <span class="mr-10">Holiday Package</span>
                                     </a>
                                 </li>
+
+                               @guest
+                               <br>
+                               <li class="menu-item">
+                                    <a data-barba href="{{ route('login') }}"  class="items-start text-22">
+                                    <span class="mr-10"><i class="icon-user"></i> Sign in </span>
+                                    </a>
+                                </li>
+                                @endguest
                             </ul>
                         </div>
 
