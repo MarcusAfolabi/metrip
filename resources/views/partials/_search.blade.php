@@ -8,7 +8,7 @@
             <div class="col-xl-10">
                 <div class="text-center">
                     <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Discover Your World</h1>
-                    <p data-anim-child="slide-up delay-5" class="text-white mt-5">Discover amzaing places at exclusive deals</p>
+                    <p data-anim-child="slide-up delay-5" class="text-white mt-5">Discover amazing places at exclusive deals</p>
                 </div>
 
                 <div data-anim-child="slide-up delay-6" class="masthead__tabs">
@@ -49,7 +49,7 @@
                                             <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
 
                                                 <div data-x-dd-click="searchMenu-date">
-                                                    <h4 class="text-15 fw-500 ls-2 lh-16">Departure - Arrival</h4>
+                                                    <h4 class="text-15 fw-500 ls-2 lh-16">Departure</h4>
 
                                                     <div class="text-15 text-light-1 ls-2 lh-16">
                                                         <input type="text" id="departfrom" name="departfrom" placeholder="Departing from" />
@@ -78,9 +78,9 @@
                                                     <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
 
                                                     <div class="text-15 text-light-1 ls-2 lh-16">
-                                                        <input type="number" max="9" id="flightadults" name="flightadults" placeholder="Adults" />
+                                                        <input type="number" min="1" max="9" id="flightadults" name="flightadults" placeholder="Adults" />
                                                         -
-                                                        <input type="number" max="6" id="flightkids" name="flightkids" placeholder="Kids (2 - 12 yrs)" />
+                                                        <input type="number" min="1" max="6" id="flightkids" name="flightkids" placeholder="Kids (2 - 12 yrs)" />
                                                     </div>
                                                 </div>
 
@@ -92,13 +92,13 @@
 
                                                     <div class="text-15 text-light-1 ls-2 lh-16">
                                                         <select id="cabinType" name="cabinType">
-                                                        <option selected hidden>Select Class</option>
+                                                            <option selected hidden>Select Class</option>
                                                             <option value="ECONOMY">ECONOMY</option>
                                                             <option value="PREMIUM_ECONOMY">PREMIUM ECONOMY</option>
                                                             <option value="BUSINESS">BUSINESS</option>
                                                             <option value="FIRST">FIRST</option>
                                                             <option value="ALLCLASS">ALL CLASS</option>
-                                                        </select> 
+                                                        </select>
                                                         -
                                                         <select class="full-width" id="flighttype" name="flighttype">
                                                             <option selected hidden>Select Trip</option>
@@ -112,14 +112,14 @@
                                             </div>
 
 
-                                           
+
                                         </div>
                                         <div class="button-item">
-                                                <button type="submit" class="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
-                                                    <i class="icon-search text-20 ml-10 mr-10"></i>
-                                                    Search
-                                                </button>
-                                            </div>
+                                            <button type="submit" class="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
+                                                <i class="icon-search text-20 ml-10 mr-10"></i>
+                                                Search
+                                            </button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -7017,3 +7017,23 @@
         </div>
     </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const flightAdultsInput = document.getElementById('flightadults');
+  const flightKidsInput = document.getElementById('flightkids');
+
+  // Function to validate and restrict the input to a single digit
+  function restrictToOneDigit(inputElement) {
+    inputElement.addEventListener('input', function() {
+      const inputValue = inputElement.value;
+      if (inputValue.length > 1) {
+        inputElement.value = inputValue.slice(0, 1);
+      }
+    });
+  }
+
+  // Apply the restriction to the flight adults and flight kids inputs
+  restrictToOneDigit(flightAdultsInput);
+  restrictToOneDigit(flightKidsInput);
+});
+</script>
