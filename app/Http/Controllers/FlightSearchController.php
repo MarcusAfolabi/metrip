@@ -10,7 +10,7 @@ class FlightSearchController extends Controller
 {
     public function index()
     {
-        return view('flight.search');
+        return view('flight.index');
     }
 
     public function search(Request $request, Client $client)
