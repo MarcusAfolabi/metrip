@@ -139,28 +139,29 @@
                                 <div class="mainSearch bg-white pr-20 py-20 lg:px-20 lg:pt-5 lg:pb-20 rounded-4 shadow-1">
                                     <div class="button-grid items-center">
 
-                                    <div class="px-10 lg:py-20 lg:px-0 ">
+                                        <!-- <div class="px-10 lg:py-20 lg:px-0 ">
 
-                                            <div data-x-dd-click="searchMenu-loc">
-                                                <h4 class="text-15 fw-500 ls-2 lh-16">LEAVING FROM</h4>
+                                            <h4 class="text-15 fw-500 ls-2 lh-16">LEAVING FROM</h4>
+
+                                            <div class="text-15 text-light-1 ls-2 lh-16">
+                                                <input autocomplete="off" type="search" placeholder="Enter destination" class="js-search js-dd-focus" />
+                                            </div>
+                                            <div class="text-15 text-light-1 ls-2 lh-16 mt-12 ">
+                                                <input autocomplete="off" type="search" placeholder="Enter Arrival" class="js-search js-dd-focus" />
+                                            </div>
+                                        </div> -->
+                                        <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
+
+                                            <div data-x-dd-click="searchMenu-date">
+                                                <h4 class="text-15 fw-500 ls-2 lh-16">Departure - Arrival</h4>
 
                                                 <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <input autocomplete="off" type="search" placeholder="Enter destination" class="js-search js-dd-focus" />
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="px-10 lg:py-20 lg:px-0 ">
-
-                                            <div data-x-dd-click="searchMenu-loc">
-                                                <h4 class="text-15 fw-500 ls-2 lh-16">GOING TO</h4>
-
-                                                <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <input autocomplete="off" type="search" placeholder="Enter Arrival" class="js-search js-dd-focus" />
+                                                    <input type="text" name="departure_date" placeholder="Departing from"  />
+                                                    -
+                                                    <input type="text" name="arrival_date" placeholder="Arriving in"  />
                                                 </div>
                                             </div>
-
- 
-                                        </div>
+                                        </div> 
 
 
                                         <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
@@ -169,14 +170,11 @@
                                                 <h4 class="text-15 fw-500 ls-2 lh-16">Check in - Check out</h4>
 
                                                 <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <span id="prevMonthBtn">Wed 2 Mar</span>
+                                                    <input type="date" name="departure_date" placeholder="Departing Date"  />
                                                     -
-                                                    <span id="nextMonthBtn">Fri 11 Apr</span>
+                                                    <input type="date" name="arrival_date" placeholder="Arriving Date" />
                                                 </div>
                                             </div>
-
-
-                                           
                                         </div>
 
 
@@ -186,11 +184,9 @@
                                                 <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
 
                                                 <div class="text-15 text-light-1 ls-2 lh-16">
-                                                    <span class="js-count-adult">2</span> adults
+                                                    <input type="tel" name="departure_date" placeholder="Adult?" />
                                                     -
-                                                    <span class="js-count-child">1</span> childeren
-                                                    -
-                                                    <span class="js-count-room">1</span> room
+                                                    <input type="tel" name="departure_date" placeholder="Children?" />
                                                 </div>
                                             </div>
 
