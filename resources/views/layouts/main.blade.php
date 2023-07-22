@@ -7,7 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/vendors.css') }}">
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <title>@yield('title') - Travel, Flight, Hotel, Tour and Visa Booking</title>

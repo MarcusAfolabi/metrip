@@ -55,7 +55,7 @@
                                 </form>
                             </div>
 
-                            <div class="tabs__pane -tab-item-4 ">
+                            <div class="tabs__pane -tab-item-3 ">
                                 <form action="" method="POST">
                                     @csrf
                                     <select hidden id="flight-type-select" class="form-select" aria-describedby="flight-type-label">
@@ -73,7 +73,7 @@
                                 </form>
                             </div> 
 
-                            <div class="tabs__pane -tab-item-1 ">
+                            <div class="tabs__pane -tab-item-4 ">
                                 <form action="" method="POST">
                                     <x-departure :departure />
                                     <x-destination :destination />
