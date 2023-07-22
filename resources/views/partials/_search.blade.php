@@ -92,15 +92,16 @@
 
                                                     <div class="text-15 text-light-1 ls-2 lh-16">
                                                         <select id="cabinType" name="cabinType">
+                                                        <option selected hidden>Select Class</option>
                                                             <option value="ECONOMY">ECONOMY</option>
-                                                            <option value="PREMIUM_ECONOMY">PREMIUM_ECONOMY</option>
+                                                            <option value="PREMIUM_ECONOMY">PREMIUM ECONOMY</option>
                                                             <option value="BUSINESS">BUSINESS</option>
                                                             <option value="FIRST">FIRST</option>
                                                             <option value="ALLCLASS">ALL CLASS</option>
                                                         </select> 
                                                         -
                                                         <select class="full-width" id="flighttype" name="flighttype">
-                                                            <option selected hidden>Trip</option>
+                                                            <option selected hidden>Select Trip</option>
                                                             <option value="Round Trip">Round Trip</option>
                                                             <option value="OneWay">OneWay</option>
                                                             <option value="Milti-City">Milti-City</option>
