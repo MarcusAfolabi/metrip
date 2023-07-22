@@ -78,9 +78,9 @@
                                                     <h4 class="text-15 fw-500 ls-2 lh-16">Guest</h4>
 
                                                     <div class="text-15 text-light-1 ls-2 lh-16">
-                                                        <input type="number" maxlength="9" id="flightadults" name="flightadults" placeholder="Adults" />
+                                                        <input type="number" max="9" id="flightadults" name="flightadults" placeholder="Adults" />
                                                         -
-                                                        <input type="number" maxlength="6" id="flightkids" name="flightkids" placeholder="Kids (2 - 12 yrs)" />
+                                                        <input type="number" max="6" id="flightkids" name="flightkids" placeholder="Kids (2 - 12 yrs)" />
                                                     </div>
                                                 </div>
 
@@ -111,13 +111,14 @@
                                             </div>
 
 
-                                            <div class="button-item">
+                                           
+                                        </div>
+                                        <div class="button-item">
                                                 <button type="submit" class="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
-                                                    <i class="icon-search text-20 mr-10"></i>
+                                                    <i class="icon-search text-20 ml-10 mr-10"></i>
                                                     Search
                                                 </button>
                                             </div>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
