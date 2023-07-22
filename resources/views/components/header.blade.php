@@ -1,4 +1,4 @@
-<div data-anim="fade" class="header__container px-30 sm:px-20">
+<div data-anim="fade" class="header__container px-30">
     <div class="row justify-between items-center">
 
         <div class="col-auto">

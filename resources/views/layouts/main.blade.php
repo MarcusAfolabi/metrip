@@ -18,8 +18,7 @@
 <body>
   <div class="js-preloader">
   </div>
-  <div id="google-sign-in-button" style="display:none;"></div>
-  <main>
+   <main>
     <div class="header-margin"></div>
     <header data-add-bg="" class="header bg-white js-header" data-x="header" data-x-toggle="is-menu-opened">
       <x-header :header />

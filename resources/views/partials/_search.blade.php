@@ -6,23 +6,16 @@
     <div class="container">
         <div class="row justify-center">
             <div class="col-xl-10">
-                <div data-anim-child="slide-up delay-6" class="masthead__tabs">
+                <div data-anim-child="slide-up" class="masthead__tabs">
                     <div class="tabs -bookmark js-tabs">
                         <div class="tabs__controls d-flex items-center js-tabs-controls">
 
                             <div class="">
                                 <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button is-tab-el-active " data-tab-target=".-tab-item-1">
                                     <i class="icon-tickets text-20 mr-10"></i>
-                                    Flights - Round Trip
+                                    Flights
                                 </button>
-                            </div>
-
-                            <div class="">
-                                <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button" data-tab-target=".-tab-item-2">
-                                    <i class="icon-tickets text-20 mr-10"></i>
-                                    Flights - One Way
-                                </button>
-                            </div>
+                            </div> 
 
                             <div class="">
                                 <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button " data-tab-target=".-tab-item-3">
@@ -54,7 +47,7 @@
 
                                     <x-depart_date :depart_date />
 
-                                    <x-return_date :return_date />
+                                    <!-- <x-return_date :return_date /> -->
 
                                     <x-passenger :passenger />
 
@@ -62,7 +55,7 @@
                                 </form>
                             </div>
 
-                            <div class="tabs__pane -tab-item-2 ">
+                            <div class="tabs__pane -tab-item-4 ">
                                 <form action="" method="POST">
                                     @csrf
                                     <select hidden id="flight-type-select" class="form-select" aria-describedby="flight-type-label">
@@ -78,19 +71,9 @@
 
                                     <x-submit_button :submit />
                                 </form>
-                            </div>
+                            </div> 
 
-                            <div class="tabs__pane -tab-item-3 ">
-                                <form action="" method="POST">
-                                    <x-departure :departure />
-                                    <x-destination :destination />
-                                    <x-depart_date :depart_date />
-                                    <x-passenger :passenger />
-                                    <x-submit_button :submit />
-                                </form>
-                            </div>
-
-                            <div class="tabs__pane -tab-item-4 ">
+                            <div class="tabs__pane -tab-item-1 ">
                                 <form action="" method="POST">
                                     <x-departure :departure />
                                     <x-destination :destination />
