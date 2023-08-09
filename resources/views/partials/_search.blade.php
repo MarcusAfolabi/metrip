@@ -42,7 +42,7 @@
 
                             <div class="tabs__pane -tab-item-1 is-tab-el-active">
                                 <div class="mainSearch bg-white pr-20 py-20 lg:px-20 lg:pt-5 lg:pb-20 rounded-4 shadow-1">
-                                    <form action="flight.search" method="POST">
+                                    <form action="{{ (flight.search) }}" method="POST">
                                         @csrf
                                         <div class="button-grid items-center">
 
@@ -109,14 +109,11 @@
                                                     </div>
                                                 </div>
 
-                                            </div>
-
-
-
+                                            </div> 
                                         </div>
                                         <div class="button-item">
-                                            <button type="submit" class="mainSearch__submit button -dark-1 py-15 px-35 h-60 col-12 rounded-4 bg-blue-1 text-white">
-                                                <i class="icon-search text-20 ml-10 mr-10"></i>
+                                            <button type="submit" class=" button -dark-1 h-60 col-12 rounded-4 bg-blue-1 text-white">
+                                                <i class="icon-search text-20"></i>
                                                 Search
                                             </button>
                                         </div>

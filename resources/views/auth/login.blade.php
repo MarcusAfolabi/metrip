@@ -11,16 +11,8 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf <div class="row y-gap-20">
 
-                            <div class="col-12">
-                                <button class="button col-12 -outline-red-1 text-red-1 py-15 rounded-8 mt-15">
-                                    <i class="icon-apple text-15 mr-10"></i>
-                                    Google
-                                </button>
-                            </div>
-
-                            <div class="col-12">
-                                <h1 class="text-22 fw-500 text-center">Or </h1>
-                            </div>
+                            
+ 
                             <div class="col-12">
 
                                 <x-validation-errors class="mb-4" />
@@ -53,7 +45,7 @@
                                     Sign In
                                 </button>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12">
                             Don't have an account yet?<a href="{{ route('register') }}" class="text-14 fw-500 text-blue-1 underline"> Sign up for free</a>
                             </div> 
                     </form>

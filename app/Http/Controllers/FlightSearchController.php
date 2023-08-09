@@ -2,57 +2,84 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Http\Request;
+use App\Services\AmadeusService;
 use GuzzleHttp\Exception\GuzzleException;
 
 class FlightSearchController extends Controller
 {
+    protected $amadeusService;
+
+    public function __construct(AmadeusService $amadeusService)
+    {
+        $this->amadeusService = $amadeusService;
+    }
+    
     public function index()
     {
         return view('flight.index');
     }
 
-    public function search(Request $request, Client $client)
+    // public function search(Request $request, Client $client)
+    // {
+    //     $request->validate([
+    //         'departure' => 'required|string',
+    //         'destination' => 'required|string',
+    //         'date' => 'required|date',
+    //         'passengers' => 'required|integer|min:1',
+    //         'type' => 'required|string|in:round_trip,one_way',
+    //     ]);
+
+    //     $apiKey = 'FZA0VIFy51Wyyn8hsrvw1HF3hodz';
+    //     $url = 'https://api.amadeus.com/v2/shopping/flight-offers';
+
+    //     $params = [
+    //         'apikey' => $apiKey,
+    //         'originLocationCode' => $request->departure,
+    //         'destinationLocationCode' => $request->destination,
+    //         'departureDate' => $request->date,
+    //         'adults' => $request->passengers,
+    //         'travelClass' => ($request->type === 'round_trip') ? 'ECONOMY' : 'BUSINESS',
+    //     ];
+
+    //     $client = new Client();
+
+    //     try {
+    //         $response = $client->get($url, [
+    //             'query' => $params,
+    //         ]);
+
+    //         $data = json_decode($response->getBody(), true);
+    //         // Process the API response and retrieve flight search results
+    //         $flights = $data['data'] ?? [];
+    //     // } catch (Exception $e) {
+    //     } catch (GuzzleException $e) {
+    //         // Handle API request errors
+    //         return back()->with('error', 'Failed to fetch flight data. Please try again later.');
+    //     }
+
+    //     return view('flight.results', ['flights' => $flights]);
+
+    // }
+    public function search(Request $request)
     {
-        $request->validate([
-            'departure' => 'required|string',
-            'destination' => 'required|string',
-            'date' => 'required|date',
-            'passengers' => 'required|integer|min:1',
-            'type' => 'required|string|in:round_trip,one_way',
-        ]);
-
-        $apiKey = 'FZA0VIFy51Wyyn8hsrvw1HF3hodz';
-        $url = 'https://api.amadeus.com/v2/shopping/flight-offers';
-
         $params = [
-            'apikey' => $apiKey,
-            'originLocationCode' => $request->departure,
-            'destinationLocationCode' => $request->destination,
-            'departureDate' => $request->date,
-            'adults' => $request->passengers,
-            'travelClass' => ($request->type === 'round_trip') ? 'ECONOMY' : 'BUSINESS',
+            'originLocationCode' => $request->input('origin'),
+            'destinationLocationCode' => $request->input('destination'),
+            'departureDate' => $request->input('departure_date'),
+            // Add more parameters as needed
         ];
 
-        $client = new Client();
+        $results = $this->amadeusService->searchFlights($params);
 
-        try {
-            $response = $client->get($url, [
-                'query' => $params,
-            ]);
+        return redirect()->route('flight.results', ['results' => $results]);
+    }
 
-            $data = json_decode($response->getBody(), true);
-            // Process the API response and retrieve flight search results
-            $flights = $data['data'] ?? [];
-        // } catch (Exception $e) {
-        } catch (GuzzleException $e) {
-            // Handle API request errors
-            return back()->with('error', 'Failed to fetch flight data. Please try again later.');
-        }
+    public function showResults(Request $request)
+    {
+        $results = $request->input('results');
 
-        return view('flight.results', ['flights' => $flights]);
-
- 
+        return view('flight.results', compact('results'));
     }
 }
