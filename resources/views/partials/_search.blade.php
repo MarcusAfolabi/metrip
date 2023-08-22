@@ -8,13 +8,12 @@
             <div class="col-xl-10">
                 <div class="text-center">
                     <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Discover Your World</h1>
-                    <p data-anim-child="slide-up delay-5" class="text-white mt-5">Discover amazing places at exclusive deals</p>
+                    <p data-anim-child="slide-up delay-5" class="text-white mt-5">We're bringing you a new level of comfort to plan your perfect adventure.</p>
                 </div>
 
                 <div data-anim-child="slide-up delay-6" class="masthead__tabs">
                     <div class="tabs -bookmark js-tabs">
                         <div class="tabs__controls d-flex items-center js-tabs-controls">
-
                             <div class="">
                                 <button class="tabs__button px-30 py-20 rounded-4 fw-600 text-white js-tabs-button is-tab-el-active" data-tab-target=".-tab-item-1">
                                     <i class="icon-tickets text-20 mr-10"></i>
@@ -42,7 +41,7 @@
 
                             <div class="tabs__pane -tab-item-1 is-tab-el-active">
                                 <div class="mainSearch bg-white pr-20 py-20 lg:px-20 lg:pt-5 lg:pb-20 rounded-4 shadow-1">
-                                    <form action="{{ (flight.search) }}" method="POST">
+                                    <form action="{{ route('flight.search') }}" method="POST">
                                         @csrf
                                         <div class="button-grid items-center">
 
@@ -102,10 +101,9 @@
                                                         -
                                                         <select class="full-width" id="flighttype" name="flighttype">
                                                             <option selected hidden>Select Trip</option>
-                                                            <option value="Round Trip">Round Trip</option>
-                                                            <option value="OneWay">OneWay</option>
-                                                            <option value="Milti-City">Milti-City</option>
-                                                        </select>
+                                                            <option value="1">Round Trip</option>
+                                                            <option value="2">OneWay</option>
+                                                         </select>
                                                     </div>
                                                 </div>
 

@@ -1,18 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
-use App\Http\Controllers\FlightSearchController;
 use App\Http\Controllers\AccessTokenController;
+use App\Http\Controllers\FlightSearchController;
+use WpOrg\Requests\Requests;
 
 Route::get('/init', AccessTokenController::class);
 
 Route::get('/', function () {
+    $id = config('app.clientID');
+    $secret = config('app.secret');
+    $url = config('app.apiURL');
+    $auth_data = array(
+        'client_id' => $id,
+        'client_secret' => $secret,
+        'grant_type'    => 'client_credentials'
+    );
+    $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
+    $requests_response = Requests::post($url, $headers, $auth_data);
+    $response_body = json_decode($requests_response->body);
+    Session::put('access_token', $response_body->access_token);
+    // dd($response_body);
     header('Cache-Control: public, max-age=604800');
     return view('welcome');
 });

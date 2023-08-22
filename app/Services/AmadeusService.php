@@ -10,6 +10,7 @@ class AmadeusService
 
     public function searchFlights($params)
     {
+        
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->apiKey,
         ])->get($this->baseUrl . 'shopping/flight-offers', $params);

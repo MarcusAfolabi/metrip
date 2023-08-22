@@ -55,6 +55,10 @@ return [
     |
     */
 
+    'clientID' => env('AMADEUS_CLIENT_ID'),
+    'secret' => env('API_SECRET'),
+    'apiURL' => env('AMADEUS_ENPOINT'),
+
     'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL'),

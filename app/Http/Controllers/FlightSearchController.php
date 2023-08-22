@@ -4,77 +4,58 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use WpOrg\Requests\Requests;
 use App\Services\AmadeusService;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 use GuzzleHttp\Exception\GuzzleException;
 
 class FlightSearchController extends Controller
 {
-    protected $amadeusService;
 
-    public function __construct(AmadeusService $amadeusService)
-    {
-        $this->amadeusService = $amadeusService;
-    }
-    
     public function index()
     {
+       
         return view('flight.index');
     }
 
-    // public function search(Request $request, Client $client)
-    // {
-    //     $request->validate([
-    //         'departure' => 'required|string',
-    //         'destination' => 'required|string',
-    //         'date' => 'required|date',
-    //         'passengers' => 'required|integer|min:1',
-    //         'type' => 'required|string|in:round_trip,one_way',
-    //     ]);
 
-    //     $apiKey = 'FZA0VIFy51Wyyn8hsrvw1HF3hodz';
-    //     $url = 'https://api.amadeus.com/v2/shopping/flight-offers';
-
-    //     $params = [
-    //         'apikey' => $apiKey,
-    //         'originLocationCode' => $request->departure,
-    //         'destinationLocationCode' => $request->destination,
-    //         'departureDate' => $request->date,
-    //         'adults' => $request->passengers,
-    //         'travelClass' => ($request->type === 'round_trip') ? 'ECONOMY' : 'BUSINESS',
-    //     ];
-
-    //     $client = new Client();
-
-    //     try {
-    //         $response = $client->get($url, [
-    //             'query' => $params,
-    //         ]);
-
-    //         $data = json_decode($response->getBody(), true);
-    //         // Process the API response and retrieve flight search results
-    //         $flights = $data['data'] ?? [];
-    //     // } catch (Exception $e) {
-    //     } catch (GuzzleException $e) {
-    //         // Handle API request errors
-    //         return back()->with('error', 'Failed to fetch flight data. Please try again later.');
-    //     }
-
-    //     return view('flight.results', ['flights' => $flights]);
-
-    // }
     public function search(Request $request)
     {
+        $url = config('app.url');
+        $token = config('app.key');
+        $endpoint = $url . '/shopping/flight-offers';
+
+        $headers = [
+            "Authorization" => "Bearer $token",
+            "Accept" => "application/json",
+            "Content-Type" => "application/json",
+        ];
         $params = [
-            'originLocationCode' => $request->input('origin'),
-            'destinationLocationCode' => $request->input('destination'),
-            'departureDate' => $request->input('departure_date'),
-            // Add more parameters as needed
+            'originLocationCode' => $request->origin,
+            'destinationLocationCode' => $request->destination,
+            'departureDate' => $request->departure_date,
         ];
 
-        $results = $this->amadeusService->searchFlights($params);
 
-        return redirect()->route('flight.results', ['results' => $results]);
+        $response = Http::withHeaders($headers)->get($endpoint, [
+            'query' => $params,
+        ]);
+
+        return json_decode($response->getBody(), true);
+
+        if ($response->successful() && $response['status'] === 'Success') {
+            $data = $response->json()['data'];
+            Log::info($response);
+            // $data = array_column($data, 'value', 'key');
+            return view('flight.index', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Failed to retrieve account details.');
+        }
     }
+
+
 
     public function showResults(Request $request)
     {
