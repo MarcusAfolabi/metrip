@@ -53,7 +53,7 @@
                                                     <div class="text-15 text-light-1 ls-2 lh-16">
                                                         <input type="text" id="departfrom" name="departfrom" placeholder="Departing from" />
                                                         -
-                                                        <input type="text" id="arrivalto" name="arrivalto" placeholder="Arriving at" />
+                                                        <input type="text" id="arrivalto" name="departfrom" placeholder="Arriving at" />
                                                     </div>
                                                 </div>
                                             </div>

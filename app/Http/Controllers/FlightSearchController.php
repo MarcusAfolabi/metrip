@@ -10,48 +10,82 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\Client\RequestException;
 
 class FlightSearchController extends Controller
 {
 
     public function index()
     {
-       
+        $token = Session::get('access_token');
+
         return view('flight.index');
     }
 
 
+    // public function search(Request $request)
+    // {
+    //     $url = config('app.url');
+    //     $token = config('app.key');
+    //     $endpoint = $url . '/shopping/flight-offers';
+
+    //     $headers = [
+    //         "Authorization" => "Bearer $token",
+    //         "Accept" => "application/json",
+    //         "Content-Type" => "application/json",
+    //     ];
+    //     $params = [
+    //         'originLocationCode' => $request->departfrom,
+    //         'destinationLocationCode' => $request->arrivalto,
+    //         'departureDate' => $request->flightdate_from,
+    //         'adults' => $request->flightadults,
+
+    //     ];
+
+
+    //     $response = Http::withHeaders($headers)->get($endpoint, [
+    //         'query' => $params,
+    //     ]);
+
+    //     return json_decode($response->getBody(), true);
+
+    //     if ($response->successful() && $response['status'] === 'Success') {
+    //         $data = $response->json()['data'];
+    //         dd($data);
+    //         Log::info($response);
+    //         // $data = array_column($data, 'value', 'key');
+    //         return view('flight.index', compact('data'));
+    //     } else {
+    //         return redirect()->back()->with('error', 'Failed to retrieve account details.');
+    //     }
+    // }
     public function search(Request $request)
     {
-        $url = config('app.url');
-        $token = config('app.key');
-        $endpoint = $url . '/shopping/flight-offers';
+        $token = Session::get('access_token');
 
-        $headers = [
-            "Authorization" => "Bearer $token",
-            "Accept" => "application/json",
-            "Content-Type" => "application/json",
+        $url = 'https://test.api.amadeus.com/v2/shopping/flight-offers';
+        $access_token = $token;
+        $data = [
+            'originLocationCode' => 'BOS',
+            'destinationLocationCode' => 'PAR',
+            'departureDate' => '2023-12-27',
+            'adults' => 1
         ];
-        $params = [
-            'originLocationCode' => $request->origin,
-            'destinationLocationCode' => $request->destination,
-            'departureDate' => $request->departure_date,
-        ];
+        $data = http_build_query($data);
+        $url .= '?' . $data;
 
+        try {
+            $response = Http::withHeaders([
+                'Accept' => 'application/json',
+                'Authorization' => 'Bearer ' . $access_token
+            ])->get($url);
 
-        $response = Http::withHeaders($headers)->get($endpoint, [
-            'query' => $params,
-        ]);
+            // return $response->body();
+            $flightData = $response->json();
+            return view('flight.index', compact('flightData'));
 
-        return json_decode($response->getBody(), true);
-
-        if ($response->successful() && $response['status'] === 'Success') {
-            $data = $response->json()['data'];
-            Log::info($response);
-            // $data = array_column($data, 'value', 'key');
-            return view('flight.index', compact('data'));
-        } else {
-            return redirect()->back()->with('error', 'Failed to retrieve account details.');
+        } catch (RequestException $exception) {
+            dd($exception);
         }
     }
 

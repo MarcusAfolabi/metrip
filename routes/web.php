@@ -1,5 +1,7 @@
 <?php
 
+use WpOrg\Requests\Requests;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
@@ -10,14 +12,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\AccessTokenController;
 use App\Http\Controllers\FlightSearchController;
-use WpOrg\Requests\Requests;
 
 Route::get('/init', AccessTokenController::class);
 
 Route::get('/', function () {
     $id = config('app.clientID');
     $secret = config('app.secret');
-    $url = config('app.apiURL');
+    $url = config('app.apiURL') . '/security/oauth2/token';  
     $auth_data = array(
         'client_id' => $id,
         'client_secret' => $secret,
@@ -27,14 +28,13 @@ Route::get('/', function () {
     $requests_response = Requests::post($url, $headers, $auth_data);
     $response_body = json_decode($requests_response->body);
     Session::put('access_token', $response_body->access_token);
-    // dd($response_body);
     header('Cache-Control: public, max-age=604800');
     return view('welcome');
 });
 
 Route::get('auth/google', [AuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [AuthController::class, 'callbackGoogle']);
- 
+
 Route::get('auth/user/{user}profile', [ProfileController::class, 'dashboard'])->name('user.dashboard');
 
 Route::get('flight', [FlightSearchController::class, 'index'])->name('flight.index');
