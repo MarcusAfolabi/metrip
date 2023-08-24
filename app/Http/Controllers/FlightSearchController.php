@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Client\RequestException;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class FlightSearchController extends Controller
 {
@@ -74,20 +75,50 @@ class FlightSearchController extends Controller
         $data = http_build_query($data);
         $url .= '?' . $data;
 
+        //     try {
+        //         $response = Http::withHeaders([
+        //             'Accept' => 'application/json',
+        //             'Authorization' => 'Bearer ' . $access_token
+        //         ])->get($url);
+
+        //         // return $response->body();
+        //         $flightData = $response->json();
+        //         $flights = $flightData['data'];
+        //         Log::info($flights);
+        //         return view('flight.index', compact('flights'));
+        //     } catch (RequestException $exception) {
+        //         dd($exception);
+        //     }
+        // }
         try {
             $response = Http::withHeaders([
                 'Accept' => 'application/json',
                 'Authorization' => 'Bearer ' . $access_token
             ])->get($url);
 
-            // return $response->body();
             $flightData = $response->json();
-            return view('flight.index', compact('flightData'));
+            $flights = $flightData['data'];
 
+            $perPage = 10;
+            $currentPage = $request->input('page', 1);
+            $pagedFlights = collect($flights)->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+            $flightData = new LengthAwarePaginator(
+                $pagedFlights,
+                count($flights),
+                $perPage,
+                $currentPage,
+                ['path' => $request->url(), 'query' => $request->query()]
+            );
+            Log::info($flightData);
+            return view('flight.index', compact('flightData'));
         } catch (RequestException $exception) {
             dd($exception);
         }
     }
+
+
+
 
 
 

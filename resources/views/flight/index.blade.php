@@ -2,633 +2,12 @@
 @section('title', "Flight around the world")
 @section('description', "Search the latest flight and enjoy this season with family and friends")
 @section('main')
-<!-- 
-<section class="pt-1 pb-40">
-    <div class="container"> 
-        <div class="d-none d-lg-block mainSearch -col-5 border-light rounded-4 pr-20 py-20 lg:px-20 lg:pt-5 lg:pb-20 mt-15">
-            <div class="button-grid items-center">
-
-
-                <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-
-                    <div data-x-dd-click="searchMenu-loc">
-                        <h4 class="text-15 fw-500 ls-2 lh-16">Flying From</h4>
-
-                        <div class="text-15 text-light-1 ls-2 lh-16">
-                            <input autocomplete="off" type="search" placeholder="City or Airport" class="js-search js-dd-focus" />
-                        </div>
-                    </div> 
-                </div>
-
-
-                <div class="searchMenu-loc px-30 lg:py-20 lg:px-0 js-form-dd js-liverSearch">
-
-                    <div data-x-dd-click="searchMenu-loc">
-                        <h4 class="text-15 fw-500 ls-2 lh-16">Flying To</h4>
-
-                        <div class="text-15 text-light-1 ls-2 lh-16">
-                            <input autocomplete="off" type="search" placeholder="City or Airport" class="js-search js-dd-focus" />
-                        </div>
-                    </div> 
-                </div>
-
-
-                <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
-
-                    <div data-x-dd-click="searchMenu-date">
-                        <h4 class="text-15 fw-500 ls-2 lh-16">Depart</h4>
-
-                        <div class="text-15 text-light-1 ls-2 lh-16">
-                            <span class="js-first-date">Wed 2 Mar</span>
-                            -
-                            <span class="js-last-date">Fri 11 Apr</span>
-                        </div>
-                    </div> 
-                </div>
-
-
-                <div class="searchMenu-date px-30 lg:py-20 lg:px-0 js-form-dd js-calendar">
-
-                    <div data-x-dd-click="searchMenu-date">
-                        <h4 class="text-15 fw-500 ls-2 lh-16">Return</h4>
-
-                        <div class="text-15 text-light-1 ls-2 lh-16">
-                            <span class="js-first-date">Wed 2 Mar</span>
-                            -
-                            <span class="js-last-date">Fri 11 Apr</span>
-                        </div>
-                    </div> 
-                </div>
-
-
-                <div class="searchMenu-guests px-30 lg:py-20 lg:px-0 js-form-dd js-form-counters">
-
-                    <div data-x-dd-click="searchMenu-guests">
-                        <h4 class="text-15 fw-500 ls-2 lh-16">Travellers</h4>
-
-                        <div class="text-15 text-light-1 ls-2 lh-16">
-                            <span class="js-count-adult">2</span> adults
-                            -
-                            <span class="js-count-child">1</span> childeren
-                            -
-                            <span class="js-count-room">1</span> room
-                        </div>
-                    </div> 
-                </div>
-
-
-                <div class="button-item">
-                    <button class="mainSearch__submit button -blue-1 py-15 px-35 h-60 col-12 rounded-4 bg-dark-3 text-white">
-                        <i class="icon-search text-20 mr-10"></i>
-                        Search
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
 <section class="layout-pt-md layout-pb-md bg-light-2">
     <div class="container">
         <div class="row y-gap-30">
 
             <div class="d-none d-md-block col-xl-3 col-lg-4">
-                <!-- <aside class="sidebar py-20 px-20 rounded-4 bg-white">
-                    <div class="row y-gap-40">
-                        <div class="sidebar__item -no-border">
-                            <h5 class="text-18 fw-500 mb-10">Stops</h5>
-                            <div class="sidebar-checkbox">
 
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Nonstop</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">1 Stop</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">2+ Stops</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item">
-                            <h5 class="text-18 fw-500 mb-10">Cabin</h5>
-                            <div class="sidebar-checkbox">
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Basic Economy</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Economy</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Mixed</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item pb-30">
-                            <h5 class="text-18 fw-500 mb-20">Flight Times</h5>
-                            <div class="row x-gap-10 y-gap-30">
-
-                                <div class="col-12">
-                                    <div class="js-time-rangeSlider">
-                                        <div class="text-14 fw-500">Take-off Boston (BOS)</div>
-
-                                        <div class="d-flex justify-between mb-15">
-                                            <div class="text-14 text-light-1">
-                                                Tue <span class="js-lower"></span>
-                                            </div>
-
-                                            <div class="text-14 text-light-1 js-upper"></div>
-                                        </div>
-
-                                        <div class="js-slider"></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="js-time-rangeSlider">
-                                        <div class="text-14 fw-500">Landing London (LON)</div>
-
-                                        <div class="d-flex justify-between mb-15">
-                                            <div class="text-14 text-light-1">
-                                                Tue <span class="js-lower"></span>
-                                            </div>
-
-                                            <div class="text-14 text-light-1 js-upper"></div>
-                                        </div>
-
-                                        <div class="js-slider"></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="js-time-rangeSlider">
-                                        <div class="text-14 fw-500">Take-off London (LON)</div>
-
-                                        <div class="d-flex justify-between mb-15">
-                                            <div class="text-14 text-light-1">
-                                                Tue <span class="js-lower"></span>
-                                            </div>
-
-                                            <div class="text-14 text-light-1 js-upper"></div>
-                                        </div>
-
-                                        <div class="js-slider"></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="js-time-rangeSlider">
-                                        <div class="text-14 fw-500">Landing Boston (BOS)</div>
-
-                                        <div class="d-flex justify-between mb-15">
-                                            <div class="text-14 text-light-1">
-                                                Tue <span class="js-lower"></span>
-                                            </div>
-
-                                            <div class="text-14 text-light-1 js-upper"></div>
-                                        </div>
-
-                                        <div class="js-slider"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item">
-                            <h5 class="text-18 fw-500 mb-10">Airlines</h5>
-                            <div class="sidebar-checkbox">
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Air France</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Aer Lingus</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$45</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Air Canada</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$21</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Air Europa</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$79</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Turkish Airlines</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$900</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item">
-                            <h5 class="text-18 fw-500 mb-10">Alliance</h5>
-                            <div class="sidebar-checkbox">
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">oneworld</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">SkyTeam</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$45</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">Star Alliance</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$21</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item">
-                            <h5 class="text-18 fw-500 mb-10">Departing from</h5>
-                            <div class="sidebar-checkbox">
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">BOS Boston</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">PVD Providence</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$45</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item">
-                            <h5 class="text-18 fw-500 mb-10">Arriving at</h5>
-                            <div class="sidebar-checkbox">
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">LCY London</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$92</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center justify-between">
-                                    <div class="col-auto">
-
-                                        <div class="d-flex items-center">
-                                            <div class="form-checkbox ">
-                                                <input type="checkbox" name="name">
-                                                <div class="form-checkbox__mark">
-                                                    <div class="form-checkbox__icon icon-check"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="text-15 ml-10">LGW London</div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-auto">
-                                        <div class="text-15 text-light-1">$45</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="sidebar__item pb-30">
-                            <h5 class="text-18 fw-500 mb-10">Price</h5>
-                            <div class="row x-gap-10 y-gap-30">
-                                <div class="col-12">
-                                    <div class="js-price-rangeSlider">
-                                        <div class="text-14 fw-500"></div>
-
-                                        <div class="d-flex justify-between mb-20">
-                                            <div class="text-15 text-dark-1">
-                                                <span class="js-lower"></span>
-                                                -
-                                                <span class="js-upper"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="px-5">
-                                            <div class="js-slider"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </aside> -->
             </div>
 
             <div class="col-xl-12 col-lg-12">
@@ -636,89 +15,71 @@
                     <div class="col-auto">
                         <button class="button -blue-1 h-40 px-30 rounded-100 bg-blue-1-05 text-15 text-blue-1">
                             <i class="icon-up-down text-14 mr-10"></i>
-                            <span class="fw-500">3,269 flights </span> found
+                            <span class="fw-500">{{ $flightData->count() }} flights </span> &nbsp;found
                         </button>
-                    </div> 
+                    </div>
                 </div>
 
 
                 <div class="js-accordion">
+
+                    @foreach ($flightData as $flight)
+                    @php
+                    $departureTime = \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][0]['departure']['at']);
+                    $arrivalTime = \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][0]['arrival']['at']);
+
+                    $departureTime2 = \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][1]['departure']['at']);
+                    $arrivalTime2 = \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][1]['arrival']['at']);
+
+
+                    $duration = $arrivalTime->diff($departureTime);
+                    $duration2 = $arrivalTime2->diff($departureTime2);
+                    $hours = $duration->h;
+                    $minutes = $duration->i;
+
+                    $hours2 = $duration2->h;
+                    $minutes2 = $duration2->i;
+                    @endphp
                     <div class="accordion__item py-30 px-30 bg-white rounded-4 base-tr mt-30" data-x="flight-item-1" data-x-toggle="shadow-2">
                         <div class="row y-gap-30 justify-between">
+                            <!-- Departure details -->
                             <div class="col">
                                 <div class="row y-gap-10 items-center">
-                                    <div class="col-sm-auto">
-                                        <img class="size-40" src="img/flightIcons/1.png" alt="image">
+                                    <!-- Departure time and airport code -->
+                                    <div class="col-auto">
+                                        <div class="lh-15 fw-500">{{ \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][0]['departure']['at'])->format('h:i A') }}</div>
+                                        <div class="text-15 lh-15 text-light-1">{{ $flight['itineraries'][0]['segments'][0]['departure']['iataCode'] }}</div>
                                     </div>
 
-                                    <div class="col">
-                                        <div class="row x-gap-20 items-end">
-                                            <div class="col-auto">
-                                                <div class="lh-15 fw-500">14:00</div>
-                                                <div class="text-15 lh-15 text-light-1">SAW</div>
-                                            </div>
-
-                                            <div class="col text-center">
-                                                <div class="flightLine">
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                                <div class="text-15 lh-15 text-light-1 mt-10">Nonstop</div>
-                                            </div>
-
-                                            <div class="col-auto">
-                                                <div class="lh-15 fw-500">22:00</div>
-                                                <div class="text-15 lh-15 text-light-1">STN</div>
-                                            </div>
+                                    <!-- Flight duration and number of stops -->
+                                    <div class="col text-center">
+                                        <div class="flightLine">
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <!-- <div class="text-15 lh-15 text-light-1 mt-10">{{ $flight['itineraries'][0]['duration'] }}</div> -->
+                                        <div class="text-15 lh-15 text-light-1 mt-10">
+                                            {{ $hours }}h {{ $minutes }}m
                                         </div>
                                     </div>
 
-                                    <div class="col-md-auto">
-                                        <div class="text-15 text-light-1 px-20 md:px-0">4h 05m</div>
-                                    </div>
-                                </div>
-
-                                <div class="row y-gap-10 items-center pt-30">
-                                    <div class="col-sm-auto">
-                                        <img class="size-40" src="img/flightIcons/2.png" alt="image">
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="row x-gap-20 items-end">
-                                            <div class="col-auto">
-                                                <div class="lh-15 fw-500">14:00</div>
-                                                <div class="text-15 lh-15 text-light-1">SAW</div>
-                                            </div>
-
-                                            <div class="col text-center">
-                                                <div class="flightLine">
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                                <div class="text-15 lh-15 text-light-1 mt-10">Nonstop</div>
-                                            </div>
-
-                                            <div class="col-auto">
-                                                <div class="lh-15 fw-500">22:00</div>
-                                                <div class="text-15 lh-15 text-light-1">STN</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-auto">
-                                        <div class="text-15 text-light-1 px-20 md:px-0">4h 05m</div>
+                                    <!-- Arrival time and airport code -->
+                                    <div class="col-auto">
+                                        <div class="lh-15 fw-500">{{ \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][0]['arrival']['at'])->format('h:i A') }}</div>
+                                        <div class="text-15 lh-15 text-light-1">{{ $flight['itineraries'][0]['segments'][0]['arrival']['iataCode'] }}</div>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Price and deals information -->
                             <div class="col-md-auto">
                                 <div class="d-flex items-center h-full">
                                     <div class="pl-30 border-left-light h-full md:d-none"></div>
 
                                     <div>
                                         <div class="text-right md:text-left mb-10">
-                                            <div class="text-18 lh-16 fw-500">US$934</div>
-                                            <div class="text-15 lh-16 text-light-1">16 deals</div>
+                                            <div class="text-18 lh-16 fw-500">{{ $flight['price']['currency'] }} {{ $flight['price']['total'] }}</div>
+                                            <div class="text-15 lh-16 text-light-1">{{ $flight['numberOfBookableSeats'] }} deals</div>
                                         </div>
 
                                         <div class="accordion__button">
@@ -730,17 +91,15 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion__content">
-
                             <div class="border-light rounded-4 mt-30">
                                 <div class="py-20 px-30">
                                     <div class="row justify-between items-center">
                                         <div class="col-auto">
-                                            <div class="fw-500 text-dark-1">Depart • Sat, Mar 26</div>
+                                            <div class="fw-500 text-dark-1">Depart • {{ \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][0]['departure']['at'])->format('D, M j') }}</div>
                                         </div>
                                         <div class="col-auto">
-                                            <div class="text-14 text-light-1">4h 05m</div>
+                                            <div class="text-14 text-light-1"> {{ $hours2 }}h {{ $minutes2 }}m</div>
                                         </div>
                                     </div>
                                 </div>
@@ -750,7 +109,7 @@
                                         <div class="col-auto">
                                             <div class="d-flex items-center mb-15">
                                                 <div class="w-28 d-flex justify-center mr-15">
-                                                    <img src="img/flights/1.png" alt="image">
+                                                    <img src="{{ asset('img/flights/1.png') }}" alt="image">
                                                 </div>
 
                                                 <div class="text-14 text-light-1">Pegasus Airlines 1169</div>
@@ -766,20 +125,25 @@
 
                                                     <div class="row">
                                                         <div class="col-auto">
-                                                            <div class="lh-14 fw-500">8:25 am</div>
+                                                            <div class="lh-14 fw-500">{{ \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][1]['departure']['at'])->format('h:i A') }}</div>
                                                         </div>
                                                         <div class="col-auto">
-                                                            <div class="lh-14 fw-500">Istanbul Sabiha Gokcen (SAW)</div>
+                                                            <div class="lh-14 fw-500">{{ $flight['itineraries'][0]['segments'][0]['departure']['iataCode'] }}</div>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="d-flex items-center mt-15">
                                                     <div class="w-28 d-flex justify-center mr-15">
-                                                        <img src="img/flights/plane.svg" alt="image">
+                                                        <img src="{{ asset('img/flights/plane.svg') }}" alt="image">
                                                     </div>
 
-                                                    <div class="text-14 text-light-1">4h 05m</div>
+
+                                                    <div class="text-15 lh-15 text-light-1 mt-10">
+                                                        {{ $hours2 }}h {{ $minutes2 }}m
+                                                    </div>
+
+                                                    <!-- <div class="text-14 text-light-1">{{ $flight['itineraries'][0]['segments'][0]['duration'] }}</div> -->
                                                 </div>
 
                                                 <div class="d-flex items-center mt-15">
@@ -789,10 +153,10 @@
 
                                                     <div class="row">
                                                         <div class="col-auto">
-                                                            <div class="lh-14 fw-500">9:30 am</div>
+                                                            <div class="lh-14 fw-500">{{ \Carbon\Carbon::parse($flight['itineraries'][0]['segments'][1]['arrival']['at'])->format('h:i A') }}</div>
                                                         </div>
                                                         <div class="col-auto">
-                                                            <div class="lh-14 fw-500">London Stansted (STN)</div>
+                                                            <div class="lh-14 fw-500">{{ $flight['itineraries'][0]['segments'][1]['arrival']['iataCode'] }}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -800,18 +164,18 @@
                                         </div>
 
                                         <div class="col-auto text-right md:text-left">
-                                            <div class="text-14 text-light-1">Economy</div>
+                                            <div class="text-14 text-light-1">Cabin: {{ $flight['travelerPricings'][0]['fareOption'] }}</div>
                                             <div class="text-14 mt-15 md:mt-5">
-                                                Airbus A320neo (Narrow-body jet)<br>
-                                                Wi-Fi available<br>
-                                                USB outlet
+                                                Traveler Type: {{ $flight['travelerPricings'][0]['travelerType'] }}<br>
+                                                Bags: {{ $flight['pricingOptions']['includedCheckedBagsOnly'] ? 'Included' : 'Not Included' }}<br>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="border-light rounded-4 mt-20">
+                            <!-- <div class="border-light rounded-4 mt-20">
                                 <div class="py-20 px-30">
                                     <div class="row justify-between items-center">
                                         <div class="col-auto">
@@ -828,7 +192,7 @@
                                         <div class="col-auto">
                                             <div class="d-flex items-center mb-15">
                                                 <div class="w-28 d-flex justify-center mr-15">
-                                                    <img src="img/flights/1.png" alt="image">
+                                                    <img src="{{ asset('img/flights/1.png') }}" alt="image">
                                                 </div>
 
                                                 <div class="text-14 text-light-1">Pegasus Airlines 1169</div>
@@ -854,7 +218,7 @@
 
                                                 <div class="d-flex items-center mt-15">
                                                     <div class="w-28 d-flex justify-center mr-15">
-                                                        <img src="img/flights/plane.svg" alt="image">
+                                                        <img src="{{ asset('img/flights/plane.svg') }}" alt="image">
                                                     </div>
 
                                                     <div class="text-14 text-light-1">4h 05m</div>
@@ -887,15 +251,21 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div> -->
                         </div>
+
+                        <!-- More flight details can be added here -->
                     </div>
-                </div> 
+                    @endforeach
+
+
+                </div>
 
                 <div class="border-top-light mt-30 pt-30">
                     <div class="row x-gap-10 y-gap-20 justify-between md:justify-center">
-                        <div class="col-auto md:order-1">
+                        <!-- {{ $flightData->links() }} -->
+
+                        <!-- <div class="col-auto md:order-1">
                             <button class="button -blue-1 size-40 rounded-full border-light">
                                 <i class="icon-chevron-left text-12"></i>
                             </button>
@@ -979,7 +349,7 @@
                             <button class="button -blue-1 size-40 rounded-full border-light">
                                 <i class="icon-chevron-right text-12"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
