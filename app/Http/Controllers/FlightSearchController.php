@@ -67,29 +67,14 @@ class FlightSearchController extends Controller
         $url = 'https://test.api.amadeus.com/v2/shopping/flight-offers';
         $access_token = $token;
         $data = [
-            'originLocationCode' => 'BOS',
-            'destinationLocationCode' => 'PAR',
-            'departureDate' => '2023-12-27',
+            'originLocationCode' => 'LOS',
+            'destinationLocationCode' => 'NBO',
+            'departureDate' => '2023-09-12',
             'adults' => 1
         ];
-        $data = http_build_query($data);
-        $url .= '?' . $data;
-
-        //     try {
-        //         $response = Http::withHeaders([
-        //             'Accept' => 'application/json',
-        //             'Authorization' => 'Bearer ' . $access_token
-        //         ])->get($url);
-
-        //         // return $response->body();
-        //         $flightData = $response->json();
-        //         $flights = $flightData['data'];
-        //         Log::info($flights);
-        //         return view('flight.index', compact('flights'));
-        //     } catch (RequestException $exception) {
-        //         dd($exception);
-        //     }
-        // }
+        $dat = http_build_query($data);
+        $url .= '?' . $dat;
+       
         try {
             $response = Http::withHeaders([
                 'Accept' => 'application/json',

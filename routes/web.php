@@ -1,6 +1,7 @@
 <?php
 
 use WpOrg\Requests\Requests;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -9,28 +10,30 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\AccessTokenController;
 use App\Http\Controllers\FlightSearchController;
 
-Route::get('/init', AccessTokenController::class);
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
-Route::get('/', function () {
-    $id = config('app.clientID');
-    $secret = config('app.secret');
-    $url = config('app.apiURL') . '/security/oauth2/token';  
-    $auth_data = array(
-        'client_id' => $id,
-        'client_secret' => $secret,
-        'grant_type'    => 'client_credentials'
-    );
-    $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
-    $requests_response = Requests::post($url, $headers, $auth_data);
-    $response_body = json_decode($requests_response->body);
-    Session::put('access_token', $response_body->access_token);
-    header('Cache-Control: public, max-age=604800');
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     $id = config('app.clientID');
+//     $secret = config('app.secret');
+//     $url = config('app.apiURL') . '/security/oauth2/token';  
+//     $auth_data = array(
+//         'client_id' => $id,
+//         'client_secret' => $secret,
+//         'grant_type'    => 'client_credentials'
+//     );
+//     $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
+//     $requests_response = Requests::post($url, $headers, $auth_data);
+//     $response_body = json_decode($requests_response->body);
+//     Session::put('access_token', $response_body->access_token);
+//     // Log::info();
+//     header('Cache-Control: public, max-age=604800');
+//     return view('welcome');
+// });
 
 Route::get('auth/google', [AuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [AuthController::class, 'callbackGoogle']);
