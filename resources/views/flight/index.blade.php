@@ -167,7 +167,7 @@
                                             <div class="text-14 text-light-1">Cabin: {{ $flight['travelerPricings'][0]['fareOption'] }}</div>
                                             <div class="text-14 mt-15 md:mt-5">
                                                 Traveler Type: {{ $flight['travelerPricings'][0]['travelerType'] }}<br>
-                                                Bags: {{ $flight['pricingOptions']['includedCheckedBagsOnly'] ? 'Included' : 'Not Included' }}<br>
+                                                Bags: {{ $flight['travelerPricings'][0]['fareDetailsBySegment'][0]['includedCheckedBags']['quantity'] }}<br>
                                             </div>
                                         </div>
 

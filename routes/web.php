@@ -14,6 +14,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\AccessTokenController;
 use App\Http\Controllers\FlightSearchController;
+use App\Http\Controllers\GetPriceController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
@@ -34,6 +35,8 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 //     header('Cache-Control: public, max-age=604800');
 //     return view('welcome');
 // });
+
+Route::get('/getprice', [GetPriceController::class, 'index'])->name('getPrice');
 
 Route::get('auth/google', [AuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [AuthController::class, 'callbackGoogle']);

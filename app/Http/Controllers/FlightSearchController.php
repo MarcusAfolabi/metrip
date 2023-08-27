@@ -95,6 +95,8 @@ class FlightSearchController extends Controller
                 $currentPage,
                 ['path' => $request->url(), 'query' => $request->query()]
             );
+            Session::put('flightData', $flightData);
+
             Log::info($flightData);
             return view('flight.index', compact('flightData'));
         } catch (RequestException $exception) {
